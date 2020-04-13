@@ -14,8 +14,8 @@
 <body>
     <div class="col-sm-4">
         <div class="editor-left-part">
-            <div class="circle-image cursor-pointer" onclick="drawElement(`circle`);"></div>
-            <div class="cursor-pointer" onclick="drawElement(`text`)">
+            <div class="circle-image cursor-pointer elem1"></div>
+            <div class="cursor-pointer elem2">
                 <span>Add Text</span>
             </div>
             <div>
@@ -24,7 +24,7 @@
         </div>
     </div>
     <div class="col-sm-8">
-        <div className="editor-right-part">
+        <div class="editor-right-part dropzone">
             <canvas id="canvas-circle" width="600" height="600"></canvas>
         </div>
     </div>
@@ -32,6 +32,7 @@
 <script>
     window.onload = function () {
         canvas = new fabric.Canvas("canvas-circle");
+        Dnd();
     }
 </script>
 
