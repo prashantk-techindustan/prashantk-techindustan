@@ -17,7 +17,7 @@ function drawElement(type) {
         canvas.add(circle);
     }
     if (type === "text") {
-        var text = new fabric.Text('HELLO WORLD.',
+        var text = new fabric.IText('HELLO WORLD.',
             {
                 left: 200,
                 top: 200,
@@ -31,6 +31,22 @@ function drawElement(type) {
                 fill: 'red'
             });
         canvas.add(text);
+    }
+    if(type === 'text_box'){
+      var text_box = new fabric.Textbox('Type Text Here' ,
+      {
+          left: 200,
+          top: 200,
+          width: 20,
+          height: 20,
+          originX: 'center',
+          originY: 'center',
+          fontSize: 30,
+          originX: 'center',
+          originY: 'center',
+          fill: 'red'
+      });
+      canvas.add("text_box");
     }
     canvas.setActiveObject(canvas.item(canvas._objects.length-1));
 }
@@ -80,7 +96,7 @@ function Dnd() {
 // enable draggables to be dropped into this
 interact('.dropzone').dropzone({
     // only accept elements matching this CSS selector
-    accept: '.elem1, .elem2',
+    accept: '.elem1, .elem2, .elem3',
     // Require a 75% element overlap for a drop to be possible
     overlap: 0.75,
   
@@ -116,6 +132,11 @@ interact('.dropzone').dropzone({
         event.relatedTarget.remove();
 
     }
+    if(event.relatedTarget.contains(document.querySelector('.elem3'))) {
+      drawElement(`text_box`);
+      event.relatedTarget.remove();
+
+  }
     //event.relatedTarget.textContent = 'Dropped'
   },
   ondropdeactivate: function (event) {// remove active dropzone feedback
@@ -124,7 +145,7 @@ interact('.dropzone').dropzone({
   }
 })
 
-interact('.elem1, .elem2')
+interact('.elem1, .elem2, .elem3')
   .draggable({
     inertia: true,
     modifiers: [
