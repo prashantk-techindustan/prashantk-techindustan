@@ -6,13 +6,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.17/fabric.min.js"></script>
     <script src="./dropElement.js"></script>
     <script src="./colorPicker.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+        crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="editor-part">
-        <div className="editor-right-part">
-            <canvas id="canvas-circle" width="150" height="150"></canvas>
-        </div>
+    <div class="col-sm-4">
         <div class="editor-left-part">
             <div class="circle-image cursor-pointer" onclick="drawElement(`circle`);"></div>
             <div class="cursor-pointer" onclick="drawElement(`text`)">
@@ -23,6 +23,16 @@
             </div>
         </div>
     </div>
+    <div class="col-sm-8">
+        <div className="editor-right-part">
+            <canvas id="canvas-circle" width="600" height="600"></canvas>
+        </div>
+    </div>
 </body>
+<script>
+    window.onload = function () {
+        canvas = new fabric.Canvas("canvas-circle");
+    }
+</script>
 
 </html>

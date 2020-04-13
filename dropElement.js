@@ -1,5 +1,6 @@
+var canvas;
+
 function drawElement(type) {
-    var canvas = new fabric.Canvas("canvas-circle");
     if (type === "circle") {
         var circle = new fabric.Circle({
             left: 100,
@@ -8,10 +9,10 @@ function drawElement(type) {
             height: 20,
             originX: 'center',
             originY: 'center',
-            radius: 20,
+            radius: 100,
             hasBorder: true,
             stroke: 'black',
-            strokeWidth: 1,
+            strokeWidth: 10,
             fill: 'rgba(0,0,0,0)',
             lockScalingFlip: true
         });
