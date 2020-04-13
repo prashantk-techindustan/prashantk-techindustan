@@ -14,17 +14,8 @@ function startup() {
 }
 
 function updateFirst(event) {
-    var p = document.querySelector("p");
-  
-    if (p) {
-      p.style.color = event.target.value;
-    }
-
     console.log("====", document.getElementsByTagName('canvas'))
   }
 
 function updateAll(event) {
-    document.querySelectorAll("p").forEach(function (p) {
-        p.style.color = event.target.value;
-    });
 }
