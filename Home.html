@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.17/fabric.min.js"></script>
+    <script src="./dropElement.js"></script>
+    <script src="./colorPicker.js"></script>
+</head>
+
+<body>
+    <div class="editor-part">
+        <div className="editor-right-part">
+            <canvas id="canvas-circle" width="150" height="150"></canvas>
+        </div>
+        <div class="editor-left-part">
+            <div class="circle-image cursor-pointer" onclick="drawElement(`circle`);"></div>
+            <div class="cursor-pointer" onclick="drawElement(`text`)">
+                <span>Add Text</span>
+            </div>
+            <div>
+                <input type="color" id="colorWell" name="colorWell" value="#e66465">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
