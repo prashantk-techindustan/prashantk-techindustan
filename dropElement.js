@@ -9,7 +9,7 @@ function drawElement(type) {
             height: 20,
             radius: 250,
             hasBorder: true,
-            stroke: 'black',
+            stroke: '#E8795B',
             strokeWidth: 5,
             fill: 'rgba(0,0,0,0)',
             lockScalingFlip: true
