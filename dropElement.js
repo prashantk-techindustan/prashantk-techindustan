@@ -1,5 +1,33 @@
 var canvas;
 
+function addBorderToTextField() {
+
+  var originalRender = fabric.Textbox.prototype._render;
+  fabric.Textbox.prototype._render = function (ctx) {
+    originalRender.call(this, ctx);
+    //Don't draw border if it is active(selected/ editing mode)
+    if (this.active) return;
+    if (this.showTextBoxBorder) {
+      var w = this.width,
+        h = this.height,
+        x = -this.width / 2,
+        y = -this.height / 2;
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x + w, y);
+      ctx.lineTo(x + w, y + h);
+      ctx.lineTo(x, y + h);
+      ctx.lineTo(x, y);
+      ctx.closePath();
+      var stroke = ctx.strokeStyle;
+      ctx.strokeStyle = this.textboxBorderColor;
+      ctx.stroke();
+      ctx.strokeStyle = stroke;
+    }
+  }
+  fabric.Textbox.prototype.cacheProperties = fabric.Textbox.prototype.cacheProperties.concat('active');
+}
+
 function drawElement(type) {
   if (type === "circle") {
     var circle = new fabric.Circle({
@@ -26,21 +54,30 @@ function drawElement(type) {
         height: 20,
         originX: 'center',
         originY: 'center',
-        fontSize: 30,
+        fontSize: 10,
         fill: 'red'
       });
     canvas.add(text);
   }
   if (type === 'text_box') {
+
+    //Add Border To Text Box
+    addBorderToTextField();
+
     var text_box = new fabric.Textbox('Type Text Here',
       {
         left: 200,
         top: 200,
-        width: 20,
-        height: 20,
+        width: 180,
+        height: 15,
         originX: 'center',
         originY: 'center',
-        fontSize: 30
+        fontSize: 20,
+        borderColor: 'red',
+        editingBorderColor: 'blue',
+        padding: 8,
+        showTextBoxBorder: true,
+        textboxBorderColor: 'black'
       });
     canvas.add(text_box);
   }
@@ -58,10 +95,18 @@ function drawElement(type) {
     })
     canvas.add(image)
   }
-  if(type === "add_button"){
+  if (type === "add_button") {
     console.log("We are Adding the button on canvas")
+    let rect = new fabric.Rect({
+      left: 200,
+      top: 200,
+      fill: 'rgb(0,0,0)',
+      width: 170,
+      height: 30
+    })
+    canvas.add(rect)
   }
-  
+
   canvas.setActiveObject(canvas.item(canvas._objects.length - 1));
 }
 
