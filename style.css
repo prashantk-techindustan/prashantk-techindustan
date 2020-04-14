@@ -23,3 +23,8 @@ body{
 .cursor-pointer{
     cursor:pointer;
 }
+
+.star-image{
+    height : 35px;
+    width  : 35px;
+}
