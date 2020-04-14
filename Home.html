@@ -1,48 +1,74 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+  <head>
+  
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<head>
-    <link rel="stylesheet" href="./style.css">
+	<!-- Style Files Here -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+	<link rel="stylesheet" href="./style.css">
+	
+	<!-- Font Awesome(Icons) File Here -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<!-- Script Files Here -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.17/fabric.min.js"></script>
     <script src="./dropElement.js"></script>
     <script src="./colorPicker.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>  
+
+	<title>Editor</title>
 </head>
-
 <body>
-    <div class="col-sm-4">
-        <div class="editor-left-part">
-            <div class="circle-image cursor-pointer elem1"></div>
-            <div class="cursor-pointer elem2">
-                <span>Add Text</span>
-            </div>
-            <div>
-                <input type="color" id="colorWell" name="colorWell" value="#e66465">
-            </div>
-            <div>
-                <input type="text" class='elem3'></input>
-            </div>
-            <div>
-                <img src="assets/images/star.png" id="star" class="cursor-pointer star-image">
-            </div>
-            <div>
-                <button id="canvas-button" class="add-button">Add Button</button>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-8">
-        <div class="editor-right-part dropzone">
-            <canvas id="canvas-circle" width="600" height="600"></canvas>
-        </div>
-    </div>
-</body>
-<script>
-    window.onload = function () {
-        canvas = new fabric.Canvas("canvas-circle");
-        Dnd();
-    }
-</script>
 
+	<div class="cus-container">
+		<div class="editor-left-part">
+			<div class="sidebar-inner">
+				<ul>
+					<li>
+						<div class="circle-image cursor-pointer elem1"></div>
+						<p>Add Circle</p>
+					</li>
+					<li>
+						<div class="cursor-pointer elem2">
+							<i class="fa fa-font"></i>
+						</div>
+						<p>Add Text</p>
+					</li>
+					<li>
+						<input type="color" id="colorWell" name="colorWell" value="#e66465">
+						<p>Choose Color</p>
+					</li>
+					<li>
+						<input type="text" class='elem3'></button>
+						<p>Add Field</p>
+					</li>
+					<li>
+						<img src="./assets/images/star.png" id="star" class="fa fa-star star-image cursor-pointer"></img>
+						<p>Add Star</p>
+					</li>
+					<li>
+						<button type="button" class="btn add-button">Button</button>
+						<p>Add Button</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="editor-right-part dropzone">
+			<canvas id="canvas-circle" width="600" height="600"></canvas>
+		</div>
+    </div>
+	
+	<script>
+		window.onload = function () {
+			canvas = new fabric.Canvas("canvas-circle");
+			Dnd();
+		}
+	</script>
+
+</body>
 </html>

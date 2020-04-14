@@ -96,11 +96,10 @@ function drawElement(type) {
     canvas.add(image)
   }
   if (type === "add_button") {
-    console.log("We are Adding the button on canvas")
     let rect = new fabric.Rect({
       left: 200,
       top: 200,
-      fill: 'rgb(0,0,0)',
+      fill: '#52b5ff',
       width: 170,
       height: 30
     })
