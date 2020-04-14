@@ -26,8 +26,6 @@ function drawElement(type) {
                 originX: 'center',
                 originY: 'center',
                 fontSize: 30,
-                originX: 'center',
-                originY: 'center',
                 fill: 'red'
             });
         canvas.add(text);
@@ -41,12 +39,9 @@ function drawElement(type) {
           height: 20,
           originX: 'center',
           originY: 'center',
-          fontSize: 30,
-          originX: 'center',
-          originY: 'center',
-          fill: 'red'
+          fontSize: 30
       });
-      canvas.add("text_box");
+      canvas.add(text_box);
     }
     canvas.setActiveObject(canvas.item(canvas._objects.length-1));
 }
